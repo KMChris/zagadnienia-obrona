@@ -1,0 +1,45 @@
+\subsection{Wyznacznik macierzy}
+\subsubsection*{Definicja:}
+Wyznacznik to liczba przypisana macierzy kwadratowej, oznaczana np. $\det(A)$, wykorzystywana m.in. do badania odwracalności macierzy. Macierz jest odwracalna wtedy i tylko wtedy, gdy jej wyznacznik jest różny od zera.
+
+\subsubsection*{Metody obliczania:}
+\begin{itemize}
+    \item \textbf{Rozwinięcie Laplace'a:} rozwinięcie względem dowolnego wiersza lub kolumny przy użyciu mniejszych wyznaczników (minorów). Dobrze nadaje się dla małych macierzy.
+    \item \textbf{Eliminacja Gaussa:} przekształcamy macierz do postaci trójkątnej; wyznacznik to iloczyn elementów na przekątnej, z uwzględnieniem znaków wynikających z zamian wierszy.
+\end{itemize}
+
+\subsubsection*{Interpretacja geometryczna:}
+Dla macierzy $2 \times 2$ lub $3 \times 3$, wyznacznik odpowiada odpowiednio polu powierzchni lub objętości równoległoboku/równoległościanu rozpiętego przez kolumny macierzy. Znak wyznacznika informuje o orientacji układu (np. dodatni -- zachowana orientacja).
+
+\subsection{Wartości i wektory własne}
+\subsubsection*{Definicja:}
+Dla macierzy kwadratowej $A$, liczba $\lambda$ jest \textbf{wartością własną}, jeśli istnieje niezerowy wektor $v$, taki że:
+
+$$
+A v = \lambda v
+$$
+
+Wektor $v$ nazywany jest \textbf{wektorem własnym} odpowiadającym wartości $\lambda$.
+
+\subsubsection*{Zastosowania:}
+\begin{itemize}
+    \item \textbf{Diagonalizacja macierzy:} jeśli macierz $A$ ma $n$ liniowo niezależnych wektorów własnych, to można ją przedstawić w postaci $A = PDP^{-1}$, gdzie $D$ to macierz diagonalna z wartościami własnymi. Ułatwia to np. potęgowanie macierzy.
+    \item \textbf{Zastosowania praktyczne:} analiza stabilności układów dynamicznych, PCA (analiza głównych składowych), mechanika kwantowa, przetwarzanie obrazów, grafy.
+\end{itemize}
+
+\subsection{Układy równań liniowych}
+\subsubsection*{Liczba rozwiązań:}
+Układ równań liniowych może mieć:
+\begin{itemize}
+    \item jedno rozwiązanie (układ oznaczony),
+    \item nieskończenie wiele rozwiązań (układ nieoznaczony),
+    \item brak rozwiązań (układ sprzeczny).
+\end{itemize}
+
+\subsubsection*{Twierdzenie Kroneckera-Capellego:}
+Układ równań liniowych ma rozwiązanie wtedy i tylko wtedy, gdy rząd macierzy głównej $A$ jest równy rzędowi macierzy rozszerzonej $(A|b)$.
+\begin{itemize}
+    \item Jeśli ten rząd jest równy liczbie niewiadomych $\rightarrow$ układ oznaczony.
+    \item Jeśli mniejszy $\rightarrow$ nieskończenie wiele rozwiązań.
+    \item Jeśli różny $\rightarrow$ układ sprzeczny.
+\end{itemize}

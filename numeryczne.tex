@@ -1,0 +1,26 @@
+\subsection{Metody numerycznego rozwiązywania równań różniczkowych}
+\subsubsection*{Metoda Eulera}
+To najprostsza metoda numeryczna dla równań postaci $y' = f(x, y)$, z danym warunkiem początkowym $y(x_0) = y_0$. Przybliżenie wyznacza się iteracyjnie:
+$y_{n+1} = y_n + h f(x_n, y_n)$
+gdzie $h$ to krok siatki. Metoda ma rząd dokładności 1 i może być niestabilna przy większym kroku.
+
+\subsubsection*{Metody Rungego-Kutty}
+To rodzina dokładniejszych metod; najczęściej stosowana to metoda RK4 (czwartego rzędu):
+$y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$
+gdzie $k_1, k_2, k_3, k_4$ to przybliżenia nachyleń w różnych punktach przedziału. RK4 zapewnia wysoką dokładność przy umiarkowanym koszcie obliczeniowym.
+
+\subsection{Metody znajdowania miejsc zerowych funkcji}
+\subsubsection*{Metoda bisekcji}
+Polega na iteracyjnym dzieleniu przedziału $[a, b]$, w którym funkcja zmienia znak (czyli $f(a) \cdot f(b) < 0$). W każdej iteracji wybiera się połowę przedziału, w której występuje zmiana znaku. Metoda jest wolna (zbieżność liniowa), ale zawsze zbieżna.
+
+\subsubsection*{Metoda Newtona (Newtona-Raphsona)}
+Stosuje wzór:
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+Wymaga znajomości pochodnej $f'(x)$ i odpowiedniego punktu startowego. Zbieżność jest kwadratowa, ale może zawieść, jeśli $f'(x_n) \approx 0$ lub punkt startowy jest źle dobrany.
+
+\subsection{Interpolacja wielomianowa}
+\subsubsection*{Idea}
+Interpolacja polega na znalezieniu wielomianu $P_n(x)$, który przechodzi przez dane punkty $(x_i, y_i)$. Przykładowe metody to Lagrange'a lub Newtona. Celem jest aproksymacja funkcji znanej tylko w punktach.
+
+\subsubsection*{Efekt Rungego}
+Przy interpolacji wielomianowej na równomiernej siatce, szczególnie dla funkcji o dużych zmianach (np. $f(x) = \frac{1}{1 + x^2}$), wielomian może silnie oscylować na końcach przedziału. Zjawisko to nazywa się efektem Rungego i wskazuje, że zwiększanie stopnia wielomianu nie zawsze poprawia jakość interpolacji.

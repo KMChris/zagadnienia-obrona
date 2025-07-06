@@ -1,0 +1,42 @@
+\subsection{Metody estymacji parametrów}
+\subsubsection*{Metoda największej wiarygodności (MLE)}
+Polega na wyznaczeniu takich wartości parametrów rozkładu, które maksymalizują funkcję wiarygodności -- czyli prawdopodobieństwo zaobserwowania danej próby. Rozwiązanie uzyskuje się zwykle poprzez różniczkowanie logarytmu funkcji wiarygodności i rozwiązanie układu równań.
+
+\subsubsection*{Metoda momentów}
+Polega na przyrównaniu teoretycznych momentów rozkładu (np. wartości oczekiwanej, wariancji) do odpowiadających im momentów empirycznych wyznaczonych z próby. Liczbę równań dobiera się do liczby estymowanych parametrów.
+
+\subsection{Regresja liniowa}
+\subsubsection*{Model regresji liniowej}
+Model opisuje zależność zmiennej zależnej $Y$ od jednej lub więcej zmiennych niezależnych $X$:
+$Y = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p + \varepsilon$
+gdzie $\varepsilon$ to składnik losowy.
+
+\subsubsection*{Założenia modelu klasycznego (Gaussa-Markowa):}
+
+\begin{itemize}
+    \item Liniowość modelu względem parametrów
+    \item $E(\varepsilon) = 0$
+    \item $\text{Var}(\varepsilon) = \sigma^2$, stała wariancja (homoskedastyczność)
+    \item Brak autokorelacji składników losowych
+    \item Niezależność obserwacji
+    \item Zmienna losowa $\varepsilon$ ma rozkład normalny (dla wnioskowania)
+\end{itemize}
+
+\subsubsection*{Estymacja parametrów -- metoda najmniejszych kwadratów (MNK)}
+Parametry modelu estymuje się przez minimalizację sumy kwadratów reszt:
+$\min_\beta \sum (Y_i - \hat{Y}_i)^2$
+Rozwiązanie analityczne:
+$\hat{\beta} = (X^T X)^{-1} X^T Y$
+
+\subsection{Testowanie hipotez statystycznych}
+\subsubsection*{Błąd I rodzaju}
+Popełniamy go, gdy odrzucamy hipotezę zerową $H_0$, mimo że jest prawdziwa. Prawdopodobieństwo tego błędu to poziom istotności $\alpha$.
+
+\subsubsection*{Błąd II rodzaju}
+Popełniamy go, gdy nie odrzucamy $H_0$, mimo że hipoteza alternatywna $H_1$ jest prawdziwa. Prawdopodobieństwo tego błędu to $\beta$.
+
+\subsubsection*{p-wartość}
+To najmniejsze możliwe $\alpha$, dla którego odrzucilibyśmy $H_0$ przy zaobserwowanej statystyce testowej. Jeżeli p-wartość < $\alpha$, odrzucamy $H_0$.
+
+\subsubsection*{Test Kołmogorowa-Smirnowa (K-S)}
+To nieparametryczny test zgodności, porównujący dystrybuantę empiryczną z dystrybuantą teoretyczną (jednowymiarowy przypadek). Statystyka testowa to maksymalna wartość bezwzględna różnicy między tymi funkcjami. Służy np. do sprawdzania normalności.

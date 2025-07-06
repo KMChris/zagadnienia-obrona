@@ -1,0 +1,165 @@
+\subsection{Proces Poissona}
+\subsubsection*{Definicja:}
+Proces Poissona to losowy proces skokowy $(N(t))_{t \geq 0}$, opisujący liczbę zdarzeń, które zaszły do czasu $t$, gdzie odstępy między kolejnymi zdarzeniami są niezależne i mają rozkład wykładniczy z parametrem $\lambda > 0$.
+
+\subsubsection*{Własności:}
+
+\begin{enumerate}
+    \item \textbf{Start w zerze:} $N(0) = 0$.
+    \item \textbf{Niezależność przyrostów:} Liczba zdarzeń w niepokrywających się przedziałach czasu jest niezależna.
+    \item \textbf{Stacjonarność przyrostów:} Rozkład liczby zdarzeń zależy tylko od długości przedziału czasu.
+    \item \textbf{Rozkład:} $P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}$, $k = 0,1,2,\dots$
+\end{enumerate}
+
+\subsubsection*{Generowanie trajektorii:}
+Generujemy kolejne odstępy między zdarzeniami $T_i$ z rozkładu wykładniczego $Exp(\lambda)$, a następnie tworzymy czasy zdarzeń $S_n = T_1 + T_2 + \dots + T_n$. Proces przyjmuje wartość $n$ na przedziale $[S_n, S_{n+1})$.
+
+\subsection{Proces Wienera (Ruch Browna)}
+\subsubsection*{Definicja:}
+Proces Wienera $(W(t))_{t \geq 0}$ to proces stochastyczny o ciągłych trajektoriach, który spełnia:
+
+\begin{enumerate}
+    \item $W(0) = 0$,
+    \item niezależność przyrostów,
+    \item przyrosty mają rozkład normalny: $W(t+s) - W(s) \sim \mathcal{N}(0, t)$,
+    \item trajektorie są ciągłe z prawdopodobieństwem 1.
+\end{enumerate}
+
+\subsubsection*{Własności:}
+
+\begin{itemize}
+    \item \textbf{Średnia:} $E[W(t)] = 0$,
+    \item \textbf{Wariancja:} $\text{Var}[W(t)] = t$,
+    \item \textbf{Niezależność i stacjonarność przyrostów},
+    \item \textbf{Gaussianowska natura:} każde skończone zbiory wartości mają rozkład normalny.
+\end{itemize}
+
+\subsubsection*{Samopodobieństwo:}
+Dla dowolnej stałej $a > 0$, proces $W(at)$ ma taki sam rozkład jak $\sqrt{a} W(t)$. To oznacza, że proces jest \textbf{samopodobny rzędu $H = 1/2$}.
+
+
+\subsection{Prawa Wielkich Liczb (PWL): Słabe i Mocne}
+Prawa Wielkich Liczb opisują warunki, w których średnia arytmetyczna ciągu niezależnych zmiennych losowych zbiega do wartości oczekiwanej.
+
+\subsubsection*{Słabe Prawo Wielkich Liczb (SPWL):}
+
+Jeśli $X_1, X_2, \dots$ są niezależne, identycznie rozłożone (i.i.d.) z $E[X_i] = \mu$, to
+
+$$
+\overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \xrightarrow{P} \mu.
+$$
+
+(Zbieżność \textbf{w prawdopodobieństwie}.)
+
+\subsubsection*{Mocne Prawo Wielkich Liczb (MPWL):}
+
+Dla tego samego ciągu:
+
+$$
+\overline{X}_n \xrightarrow{a.s.} \mu.
+$$
+
+(Zbieżność \textbf{prawie na pewno}.)
+
+\subsubsection*{Rodzaje zbieżności zmiennych losowych:}
+
+\begin{enumerate}
+    \item \textbf{Zbieżność prawie na pewno (a.s.):} $P(\lim_{n \to \infty} X_n = X) = 1$,
+    \item \textbf{Zbieżność w prawdopodobieństwie:} $\forall \varepsilon > 0, \ \lim_{n \to \infty} P(|X_n - X| > \varepsilon) = 0$,
+    \item \textbf{Zbieżność w rozkładzie (dystrybuancji):} $F_{X_n}(x) \to F_X(x)$ dla punktów ciągłości $F_X$,
+    \item \textbf{Zbieżność w średniej kwadratowej:} $\lim_{n \to \infty} E[(X_n - X)^2] = 0$.
+\end{enumerate}
+
+Zależności:
+
+$$
+\text{Zb. a.s.} \Rightarrow \text{zb. w prawdopodobieństwie} \Rightarrow \text{zb. w rozkładzie}.
+$$
+
+\subsection{Metoda Monte Carlo}
+\subsubsection*{Idea:}
+Metoda Monte Carlo polega na użyciu losowania (symulacji) do przybliżenia wartości liczbowych, np. całek, wartości oczekiwanych, rozwiązań równań itp.
+
+\subsubsection*{Przykład:}
+Aby oszacować wartość oczekiwaną $E[f(X)]$, generujemy $X_1, ..., X_n$ i obliczamy
+
+$$
+\hat{\mu}_n = \frac{1}{n} \sum_{i=1}^n f(X_i).
+$$
+
+Dla dużego $n$, $\hat{\mu}_n \approx E[f(X)]$.
+
+\subsubsection*{Podstawa teoretyczna:}
+\textbf{Prawa Wielkich Liczb} -- gwarantują, że $\hat{\mu}_n \to E[f(X)]$ przy rosnącym $n$, co uzasadnia poprawność metody.
+
+\subsubsection*{Zalety:}
+\begin{itemize}
+    \item Łatwość implementacji,
+    \item Możliwość zastosowania w problemach wysokowymiarowych lub trudnych analitycznie.
+\end{itemize}
+
+\subsection{Stacjonarność procesu stochastycznego (w węższym i szerszym sensie)}
+\subsubsection*{Stacjonarność w węższym sensie (tzw. stacjonarność drugiego rzędu):}
+Proces $(X_t)_{t \in T}$ jest stacjonarny w węższym sensie, jeśli:
+
+\begin{enumerate}
+    \item $E[X_t] = \mu = \text{const}$,
+    \item $\text{Cov}(X_t, X_{t+h}) = \gamma(h)$ -- zależy tylko od przesunięcia $h$, a nie od $t$.
+\end{enumerate}
+
+\subsubsection*{Stacjonarność w szerszym sensie (ściśle stacjonarny):}
+Proces $(X_t)$ jest stacjonarny w szerszym sensie, jeśli rozkład $(X_{t_1}, ..., X_{t_k})$ jest taki sam jak $(X_{t_1+h}, ..., X_{t_k+h})$ dla dowolnych $t_1,...,t_k$ i $h$.
+(Inaczej: cały rozkład jest niezmienniczy na przesunięcia czasu.)
+
+\subsubsection*{Przykłady:}
+
+\begin{itemize}
+    \item \textbf{Proces stacjonarny w sensie szerokim:} proces autoregresyjny AR(1) z $|\phi| < 1$.
+    \item \textbf{Proces ściśle stacjonarny:} proces o niezależnych i identycznie rozłożonych zmiennych $X_t \sim \text{Exp}(\lambda)$.
+    \item \textbf{Proces Wienera}: \textbf{nie jest stacjonarny} -- wariancja rośnie z czasem.
+\end{itemize}
+
+\subsection{Funkcja charakterystyczna}
+\subsubsection*{Definicja:}
+Funkcja charakterystyczna zmiennej losowej $X$ to funkcja $\varphi_X(t) = E[e^{itX}]$, $t \in \mathbb{R}$.
+
+\subsubsection*{Własności:}
+
+\begin{enumerate}
+    \item Zawsze istnieje (również dla zmiennych bez momentów),
+    \item $\varphi_X(0) = 1$,
+    \item $|\varphi_X(t)| \leq 1$,
+    \item Funkcja charakterystyczna określa jednoznacznie rozkład zmiennej losowej,
+    \item $\varphi_{aX + b}(t) = e^{itb} \varphi_X(at)$,
+    \item Dla niezależnych $X, Y$: $\varphi_{X+Y}(t) = \varphi_X(t) \cdot \varphi_Y(t)$.
+\end{enumerate}
+
+\subsubsection*{Zastosowanie:}
+
+\begin{itemize}
+    \item Identyfikacja rozkładu,
+    \item Dowód twierdzenia centralnego granicznego (CLT),
+    \item Badanie zbieżności w rozkładzie,
+    \item Ułatwia obliczenia przy sumach niezależnych zmiennych.
+\end{itemize}
+
+\subsection{Martyngały}
+\subsubsection*{Definicja:}
+Proces $(X_n)_{n \geq 0}$ to \textbf{martyngał} względem filtracji $(\mathcal{F}_n)$, jeśli:
+
+\begin{enumerate}
+    \item $X_n$ jest $\mathcal{F}_n$-mierzalny,
+    \item $E[|X_n|] < \infty$,
+    \item $E[X_{n+1} \mid \mathcal{F}_n] = X_n$ prawie na pewno.
+\end{enumerate}
+
+\subsubsection*{Intuicja:}
+Brak przewagi w grze -- przyszła wartość średnia równa jest obecnej, biorąc pod uwagę dostępną informację.
+
+\subsubsection*{Przykłady:}
+
+\begin{itemize}
+    \item $X_n = S_n = \sum_{i=1}^n \xi_i$, gdzie $\xi_i$ są niezależne, mają wartość oczekiwaną 0.
+    \item $X_n = E[Y \mid \mathcal{F}_n]$, gdzie $Y$ ma skończoną wartość oczekiwaną.
+    \item Proces $W(t)$ -- proces Wienera -- jest martyngałem względem swojej naturalnej filtracji.
+\end{itemize}

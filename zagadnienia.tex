@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{
+  a4paper,
+  left=25mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm
+}
+\setcounter{secnumdepth}{2}
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\renewcommand\thesection{}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\titleformat{\subsection}
+  {\normalfont\small\bfseries}
+  {\thesubsection}{1em}{}
+
+\newcommand{\xrightarrowd}{\xrightarrow{\text{d}}}
+
+
+\title{\bfseries Zagadnienia na obronę}
+\author{Matematyka}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section*{Analiza matematyczna}
+\addcontentsline{toc}{section}{Analiza matematyczna}
+\input{analiza}
+
+\section*{Rachunek prawdopodobieństwa i procesy stochastyczne}
+\addcontentsline{toc}{section}{Rachunek prawdopodobieństwa i procesy stochastyczne}
+\input{prawdopodobienstwo}
+
+\section*{Statystyka}
+\addcontentsline{toc}{section}{Statystyka}
+\input{statystyka}
+
+\section*{Algebra}
+\addcontentsline{toc}{section}{Algebra}
+\input{algebra}
+
+\section*{Metody numeryczne}
+\addcontentsline{toc}{section}{Metody numeryczne}
+\input{numeryczne}
+
+\end{document}

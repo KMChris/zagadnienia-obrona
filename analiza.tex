@@ -1,0 +1,291 @@
+\subsection{Centralne Twierdzenie Graniczne (CTG)}
+
+\subsubsection*{Definicja:}
+Centralne Twierdzenie Graniczne mówi, że jeśli $X_1, X_2, ..., X_n$ są niezależnymi, identycznie rozłożonymi zmiennymi losowymi o skończonej wartości oczekiwanej $\mu$ i skończonej wariancji $\sigma^2$, to suma (lub średnia) tych zmiennych po odpowiednim przeskalowaniu dąży rozkładem do rozkładu normalnego, gdy $n \to \infty$.
+
+Formalnie:
+
+$$
+\frac{\sum_{i=1}^n X_i - n\mu}{\sigma \sqrt{n}} \xrightarrow{d} N(0,1)
+$$
+
+\subsubsection*{Założenia:}
+\begin{enumerate}
+    \item Zmienne są niezależne.
+    \item Mają ten sam rozkład (i.i.d.).
+    \item Istnieje skończona wartość oczekiwana $\mu$ i skończona wariancja $\sigma^2$.
+\end{enumerate}
+
+\subsubsection*{Zastosowanie:}
+\begin{itemize}
+    \item Uzasadnienie stosowania rozkładu normalnego w statystyce.
+    \item Budowa przedziałów ufności i testów statystycznych.
+    \item Modelowanie błędów pomiaru i zjawisk losowych w naukach przyrodniczych i społecznych.
+\end{itemize}
+
+\subsubsection*{Uogólnienia:}
+\begin{itemize}
+    \item \textbf{Lindeberga i Lyapunowa CTG:} wersje dla zmiennych niezależnych, ale niekoniecznie identycznie rozłożonych.
+    \item \textbf{CTG dla rozkładów alfa-stabilnych (gdy wariancja nieskończona):}
+    Jeśli zmienne mają ciężkie ogony (np. rozkład Pareto), suma po odpowiednim przeskalowaniu może dążyć nie do rozkładu normalnego, lecz do rozkładu \textbf{alfa-stabilnego}.
+    Wtedy:
+
+  $$
+  \frac{\sum_{i=1}^n X_i - a_n}{b_n} \xrightarrow{d} S_\alpha(\cdot)
+  $$
+
+  gdzie $0 < \alpha < 2$, $S_\alpha$ -- rozkład alfa-stabilny, $b_n \sim n^{1/\alpha}$.
+\end{itemize}
+
+\subsection{Pochodna funkcji}
+
+\subsubsection*{Definicja:}
+Pochodna funkcji $f$ w punkcie $x_0$ to granica ilorazu różnicowego (jeśli istnieje):
+
+$$
+f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}
+$$
+
+\subsubsection*{Interpretacja geometryczna:}
+Pochodna to \textbf{nachylenie stycznej} do wykresu funkcji w punkcie $x_0$. Pokazuje, jak szybko zmienia się wartość funkcji.
+
+\subsubsection*{Metody obliczania:}
+\begin{itemize}
+    \item \textbf{Analityczne:} Reguły różniczkowania (iloczyn, iloraz, złożenie funkcji -- reguła łańcuchowa).
+    \item \textbf{Numeryczne:} Przybliżenia różnicowe, np.
+
+  $$
+  f'(x) \approx \frac{f(x+h) - f(x)}{h} \quad \text{(różnica prosta)}
+  $$
+
+  lub centralna:
+
+  $$
+  f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}
+  $$
+\end{itemize}
+
+\subsection{Całka Riemanna, całki oznaczone i nieoznaczone}
+
+\subsubsection*{Całka Riemanna (konstrukcja):}
+Dla funkcji $f$ określonej na przedziale $[a, b]$, całka oznaczona to granica sum Riemanna:
+
+$$
+\int_a^b f(x)\,dx = \lim_{\|\mathcal{P}\| \to 0} \sum_{i=1}^n f(c_i) \Delta x_i
+$$
+
+gdzie $\mathcal{P}$ to podział przedziału, $c_i \in [x_{i-1}, x_i]$, $\Delta x_i = x_i - x_{i-1}$.
+
+\subsubsection*{Całka oznaczona:}
+
+$$
+\int_a^b f(x)\,dx
+$$
+zwraca liczbę, interpretowana jako pole pod wykresem funkcji między $a$ i $b$.
+
+\subsubsection*{Całka nieoznaczona:}
+
+$$
+\int f(x)\,dx
+$$
+zbiór wszystkich funkcji pierwotnych $F(x)$, takich że $F'(x) = f(x)$.
+
+\subsubsection*{Własności:}
+\begin{itemize}
+    \item Liniowość: $\int (af + bg) = a \int f + b \int g$
+    \item Monotoniczność, addytywność względem przedziału
+    \item Jeśli $f$ ciągła na $[a, b]$, to całkowalna
+\end{itemize}
+
+\subsubsection*{Podstawowe twierdzenia rachunku całkowego (Newtona-Leibniza):}
+\begin{enumerate}
+    \item Jeśli $F$ -- funkcja pierwotna $f$, to:
+
+    $$
+    \int_a^b f(x)\,dx = F(b) - F(a)
+    $$
+    \item Jeśli $f$ ciągła, to funkcja:
+
+    $$
+    F(x) = \int_a^x f(t)\,dt
+    $$
+
+    jest różniczkowalna i $F'(x) = f(x)$
+\end{enumerate}
+
+
+\subsection{Szereg Taylora i Maclaurina}
+
+\subsubsection*{Wzór Taylora:}
+Dla funkcji $f$ nieskończenie różniczkowalnej w punkcie $a$:
+
+$$
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n
+$$
+
+\subsubsection*{Szereg Maclaurina:}
+To szczególny przypadek szeregu Taylora dla $a = 0$:
+
+$$
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n
+$$
+
+\subsubsection*{Warunki zbieżności:}
+\begin{itemize}
+    \item Zbieżność szeregu nie oznacza automatycznie równości z funkcją -- potrzebna \textbf{zbieżność jednostajna} lub spełnienie warunku z resztą:
+
+  $$
+  R_n(x) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x - a)^k \to 0 \quad \text{dla } n \to \infty
+  $$
+    \item Dla wielu funkcji rozwinięcie Taylora zbiega tylko w otoczeniu punktu $a$ (promień zbieżności $R > 0$).
+\end{itemize}
+
+\subsubsection*{Zastosowania:}
+\begin{itemize}
+    \item Aproksymacja funkcji (szczególnie w analizie numerycznej)
+    \item Obliczenia przybliżone (np. trygonometryczne, wykładnicze)
+    \item Rozwiązywanie równań różniczkowych
+    \item Fizyka (np. rozwinięcia wokół stanu równowagi)
+\end{itemize}
+
+\subsection{Kryteria zbieżności szeregów}
+
+\subsubsection*{Kryterium porównawcze:}
+Jeśli $0 \leq a_n \leq b_n$ dla dużych $n$, i $\sum b_n$ zbieżny, to $\sum a_n$ też zbieżny.
+Odwrotnie: jeśli $\sum a_n$ rozbieżny i $a_n \geq b_n \geq 0$, to $\sum b_n$ też rozbieżny.
+
+\subsubsection*{Kryterium d'Alemberta (ilorazowe):}
+Jeśli
+
+$$
+\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = L
+$$
+
+to:
+\begin{itemize}
+    \item jeśli $L < 1$ $\rightarrow$ szereg zbieżny,
+    \item jeśli $L > 1$ lub $= \infty$ $\rightarrow$ rozbieżny,
+    \item jeśli $L = 1$ $\rightarrow$ brak informacji (kryterium nie rozstrzyga).
+\end{itemize}
+
+\subsubsection*{Kryterium Cauchy'ego (pierwiastkowe):}
+Jeśli
+
+$$
+\limsup_{n \to \infty} \sqrt[n]{|a_n|} = L,
+$$
+
+to:
+\begin{itemize}
+    \item $L < 1$ $\rightarrow$ szereg zbieżny,
+    \item $L > 1$ $\rightarrow$ rozbieżny,
+    \item $L = 1$ $\rightarrow$ kryterium nie rozstrzyga.
+\end{itemize}
+
+\subsubsection*{Kryterium Leibniza (dla szeregów naprzemiennych):}
+Jeśli $a_n$ są dodatnie, monotonicznie malejące i $\lim a_n = 0$, to szereg:
+
+$$
+\sum (-1)^n a_n
+$$
+
+jest \textbf{zbieżny} (ale niekoniecznie bezwzględnie).
+
+\subsection{Ekstrema funkcji (jednej i wielu zmiennych)}
+
+\subsubsection*{Dla funkcji jednej zmiennej $f(x)$:}
+\begin{itemize}
+    \item \textbf{Warunek konieczny:} Jeśli $f$ ma ekstremum lokalne w punkcie $x_0$, to $f'(x_0) = 0$ (lub nie istnieje).
+    \item \textbf{Warunek wystarczający:}
+    \begin{itemize}
+        \item Jeśli $f''(x_0) > 0$, to minimum lokalne.
+        \item Jeśli $f''(x_0) < 0$, to maksimum lokalne.
+        \item Jeśli $f''(x_0) = 0$, potrzebne dalsze badanie (np. wyższe pochodne lub wykres).
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Dla funkcji wielu zmiennych $f(x, y, \ldots)$:}
+\begin{itemize}
+    \item \textbf{Warunek konieczny:}
+    Punkt krytyczny $\nabla f = 0$ (wszystkie pochodne cząstkowe równe 0).
+    \item \textbf{Warunek wystarczający (test Hessego):}
+    Obliczamy macierz Hessego $H$ (macierz drugich pochodnych).
+    \begin{itemize}
+        \item Jeśli $H$ dodatnio określona $\rightarrow$ minimum.
+        \item Ujemnie określona $\rightarrow$ maksimum.
+        \item Nieokreślona $\rightarrow$ punkt siodłowy.
+        \item Zdegenerowana $\rightarrow$ test nie rozstrzyga.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Ekstrema na zbiorach domkniętych:}
+Sprawdzamy wartości funkcji:
+\begin{itemize}
+    \item w punktach krytycznych wewnątrz zbioru,
+    \item na brzegu (np. ograniczając funkcję do brzegu i szukając ekstremów),
+    \item porównujemy wartości -- największa/minimalna to ekstrema globalne.
+\end{itemize}
+
+\subsection{Liczby zespolone}
+
+\subsubsection*{Postać algebraiczna:}
+
+$$
+z = a + bi, \quad a, b \in \mathbb{R}, \quad i^2 = -1
+$$
+
+\subsubsection*{Postać trygonometryczna:}
+
+$$
+z = r(\cos \varphi + i \sin \varphi), \quad r = |z| = \sqrt{a^2 + b^2},\ \varphi = \arg z
+$$
+
+\subsubsection*{Postać wykładnicza (Eulera):}
+
+$$
+z = re^{i\varphi}, \quad \text{bo } e^{i\varphi} = \cos \varphi + i \sin \varphi
+$$
+
+\subsubsection*{Wzór de Moivre'a:}
+Dla $z = \cos \varphi + i \sin \varphi$:
+
+$$
+z^n = \cos(n\varphi) + i \sin(n\varphi)
+$$
+
+Lub ogólniej:
+
+$$
+(re^{i\varphi})^n = r^n e^{in\varphi}
+$$
+
+\subsection{Transformata Fouriera}
+
+\subsubsection*{Definicja (dla funkcji całkowalnej $f \in L^1(\mathbb{R})$):}
+
+$$
+\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+$$
+
+\subsubsection*{Własności:}
+\begin{itemize}
+    \item Liniowość
+    \item Przesunięcie: $f(x - a) \leftrightarrow e^{-2\pi i a \xi} \hat{f}(\xi)$
+    \item Skalowanie: $f(ax) \leftrightarrow \frac{1}{|a|} \hat{f}\left(\frac{\xi}{a}\right)$
+    \item Transformata pochodnej:
+
+    $$
+    f'(x) \leftrightarrow 2\pi i \xi \cdot \hat{f}(\xi)
+    $$
+    \item Transformata funkcji parzystej jest rzeczywista, nieparzystej -- urojona
+\end{itemize}
+
+\subsubsection*{Związek z funkcją charakterystyczną:}
+Funkcja charakterystyczna zmiennej losowej $X$:
+
+$$
+\varphi_X(t) = \mathbb{E}[e^{itX}]
+$$
+
+to (z dokładnością do stałej) \textbf{odwrotna transformata Fouriera} rozkładu prawdopodobieństwa $X$.
+Jest to analogiczna transformata, ale z $e^{itx}$ zamiast $e^{-2\pi i x \xi}$.
