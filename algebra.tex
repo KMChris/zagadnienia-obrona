@@ -37,9 +37,12 @@ Układ równań liniowych może mieć:
 \end{itemize}
 
 \subsubsection*{Twierdzenie Kroneckera-Capellego:}
-Układ równań liniowych ma rozwiązanie wtedy i tylko wtedy, gdy rząd macierzy głównej $A$ jest równy rzędowi macierzy rozszerzonej $(A|b)$.
+Niech $\text{rz}(A)$ oznacza rząd macierzy głównej, a $\text{rz}(A|b)$ rząd macierzy rozszerzonej.
 \begin{itemize}
-    \item Jeśli ten rząd jest równy liczbie niewiadomych $\rightarrow$ układ oznaczony.
-    \item Jeśli mniejszy $\rightarrow$ nieskończenie wiele rozwiązań.
-    \item Jeśli różny $\rightarrow$ układ sprzeczny.
+    \item Jeśli $\text{rz}(A) \neq \text{rz}(A|b)$, to układ jest \textbf{sprzeczny} (brak rozwiązań).
+    \item Jeśli $\text{rz}(A) = \text{rz}(A|b) = r$, to układ jest niesprzeczny. Wtedy, dla $n$ niewiadomych:
+    \begin{itemize}
+        \item Jeśli $r = n$, układ jest \textbf{oznaczony} (jedno rozwiązanie).
+        \item Jeśli $r < n$, układ jest \textbf{nieoznaczony} (nieskończenie wiele rozwiązań).
+    \end{itemize}
 \end{itemize}

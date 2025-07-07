@@ -3,10 +3,15 @@
 \subsubsection*{Definicja:}
 Centralne Twierdzenie Graniczne mówi, że jeśli $X_1, X_2, ..., X_n$ są niezależnymi, identycznie rozłożonymi zmiennymi losowymi o skończonej wartości oczekiwanej $\mu$ i skończonej wariancji $\sigma^2$, to suma (lub średnia) tych zmiennych po odpowiednim przeskalowaniu dąży rozkładem do rozkładu normalnego, gdy $n \to \infty$.
 
-Formalnie:
+Formalnie (dla sumy):
 
 $$
 \frac{\sum_{i=1}^n X_i - n\mu}{\sigma \sqrt{n}} \xrightarrow{d} N(0,1)
+$$
+
+Równoważnie dla średniej arytmetycznej $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$:
+$$
+\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} N(0,1)
 $$
 
 \subsubsection*{Założenia:}
@@ -117,7 +122,7 @@ zbiór wszystkich funkcji pierwotnych $F(x)$, takich że $F'(x) = f(x)$.
 \subsection{Szereg Taylora i Maclaurina}
 
 \subsubsection*{Wzór Taylora:}
-Dla funkcji $f$ nieskończenie różniczkowalnej w punkcie $a$:
+Dla funkcji $f$ nieskończenie różniczkowalnej w otoczeniu punktu $a$. Poniższa równość zachodzi, gdy reszta $R_n(x)$ we wzorze Taylora dąży do zera:
 
 $$
 f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n
@@ -152,7 +157,7 @@ $$
 
 \subsubsection*{Kryterium porównawcze:}
 Jeśli $0 \leq a_n \leq b_n$ dla dużych $n$, i $\sum b_n$ zbieżny, to $\sum a_n$ też zbieżny.
-Odwrotnie: jeśli $\sum a_n$ rozbieżny i $a_n \geq b_n \geq 0$, to $\sum b_n$ też rozbieżny.
+Odwrotnie: jeśli $0 \le b_n \le a_n$ i $\sum b_n$ rozbieżny, to $\sum a_n$ też rozbieżny.
 
 \subsubsection*{Kryterium d'Alemberta (ilorazowe):}
 Jeśli
@@ -247,16 +252,10 @@ z = re^{i\varphi}, \quad \text{bo } e^{i\varphi} = \cos \varphi + i \sin \varphi
 $$
 
 \subsubsection*{Wzór de Moivre'a:}
-Dla $z = \cos \varphi + i \sin \varphi$:
+Dla $z = r\left(\cos \varphi + i \sin \varphi\right)$:
 
 $$
-z^n = \cos(n\varphi) + i \sin(n\varphi)
-$$
-
-Lub ogólniej:
-
-$$
-(re^{i\varphi})^n = r^n e^{in\varphi}
+z^n = |z|^n\left(\cos(n\varphi) + i \sin(n\varphi)\right)
 $$
 
 \subsection{Transformata Fouriera}
@@ -287,5 +286,5 @@ $$
 \varphi_X(t) = \mathbb{E}[e^{itX}]
 $$
 
-to (z dokładnością do stałej) \textbf{odwrotna transformata Fouriera} rozkładu prawdopodobieństwa $X$.
-Jest to analogiczna transformata, ale z $e^{itx}$ zamiast $e^{-2\pi i x \xi}$.
+Funkcja charakterystyczna $\varphi_X(t)$ jest transformatą Fouriera gęstości prawdopodobieństwa zmiennej losowej $X$,
+ale z inną konwencją znaku w wykładniku ($e^{itx}$ zamiast $e^{-2\pi i x \xi}$) i~skalowania.

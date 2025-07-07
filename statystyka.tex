@@ -14,19 +14,23 @@ gdzie $\varepsilon$ to składnik losowy.
 \subsubsection*{Założenia modelu klasycznego (Gaussa-Markowa):}
 
 \begin{itemize}
-    \item Liniowość modelu względem parametrów
-    \item $E(\varepsilon) = 0$
-    \item $\text{Var}(\varepsilon) = \sigma^2$, stała wariancja (homoskedastyczność)
-    \item Brak autokorelacji składników losowych
-    \item Niezależność obserwacji
-    \item Zmienna losowa $\varepsilon$ ma rozkład normalny (dla wnioskowania)
+    \item Liniowość modelu względem parametrów.
+    \item Składnik losowy ma zerową wartość oczekiwaną: $E(\varepsilon_i) = 0$.
+    \item Homoskedastyczność: wariancja składnika losowego jest stała: $\text{Var}(\varepsilon_i) = \sigma^2$.
+    \item Brak autokorelacji składnika losowego: $\text{Cov}(\varepsilon_i, \varepsilon_j) = 0$ dla $i \neq j$.
+    \item Brak idealnej współliniowości między zmiennymi objaśniającymi.
+    \item \textit{Dodatkowe założenie do wnioskowania statystycznego (testy t, F):} Składnik losowy ma rozkład normalny: $\varepsilon \sim \mathcal{N}(0, \sigma^2)$.
 \end{itemize}
 
 \subsubsection*{Estymacja parametrów -- metoda najmniejszych kwadratów (MNK)}
 Parametry modelu estymuje się przez minimalizację sumy kwadratów reszt:
-$\min_\beta \sum (Y_i - \hat{Y}_i)^2$
+$$
+\min_\beta \sum (Y_i - \hat{Y}_i)^2
+$$
 Rozwiązanie analityczne:
-$\hat{\beta} = (X^T X)^{-1} X^T Y$
+$$
+\hat{\beta} = (X^T X)^{-1} X^T Y
+$$
 
 \subsection{Testowanie hipotez statystycznych}
 \subsubsection*{Błąd I rodzaju}
@@ -39,4 +43,4 @@ Popełniamy go, gdy nie odrzucamy $H_0$, mimo że hipoteza alternatywna $H_1$ je
 To najmniejsze możliwe $\alpha$, dla którego odrzucilibyśmy $H_0$ przy zaobserwowanej statystyce testowej. Jeżeli p-wartość < $\alpha$, odrzucamy $H_0$.
 
 \subsubsection*{Test Kołmogorowa-Smirnowa (K-S)}
-To nieparametryczny test zgodności, porównujący dystrybuantę empiryczną z dystrybuantą teoretyczną (jednowymiarowy przypadek). Statystyka testowa to maksymalna wartość bezwzględna różnicy między tymi funkcjami. Służy np. do sprawdzania normalności.
+To nieparametryczny test zgodności, porównujący dystrybuantę empiryczną z dystrybuantą teoretyczną (jednowymiarowy przypadek). Statystyka testowa to maksymalna wartość bezwzględna różnicy między tymi funkcjami. Służy np. do sprawdzania zgodności z zadanym rozkładem. W przypadku testowania normalności, gdy parametry rozkładu (średnia, odchylenie standardowe) są estymowane z próby, należy użyć \textbf{testu Lillieforsa} (poprawka do testu K-S) lub, co jest zalecane, testu o większej mocy, jak \textbf{testu Shapiro-Wilka}.
